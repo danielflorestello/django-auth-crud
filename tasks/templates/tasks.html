@@ -5,7 +5,7 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="text-center dispaly-3 py-5">TASKS PENDING</h1>
+            <h1 class="text-center dispaly-3 py-5">TASKS</h1>
 
             <ul class="list-group">
                 {% for task in tasks %}
@@ -27,6 +27,12 @@
 
                     <p>{{task.description}}</p>
                     <p>{{task.datecompleted|date:'M j Y:i'}}</p>
+
+                    {% if task.datecompleted %}
+                        <p class="fw-bold">Completed</p>
+                    {% else %}
+                        <p class="fw-bold">Pending</p>
+                    {% endif %}
                 </a>
                 {% endfor %}
             </ul>
